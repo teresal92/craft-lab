@@ -15,7 +15,7 @@ function Home() {
       </header>
       <ul className="toc">
         {recipes.map((recipe) => (
-          <li key={recipe.slug} className="toc-item">
+          <li key={recipe.slug}>
             <Link to="/recipes/$slug" params={{ slug: recipe.slug }} className="toc-link">
               <span className="toc-title">{recipe.title}</span>
               <span className="toc-description">{recipe.description}</span>
