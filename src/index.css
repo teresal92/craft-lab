@@ -6,6 +6,8 @@
   --color-border: #e0e0e0;
   --color-border-strong: #999;
 
+  --content-width: 640px;
+
   --radius-md: 0.5rem;
 
   --text-sm: 0.875rem;
@@ -37,7 +39,7 @@ body {
 }
 
 .page {
-  max-width: 640px;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: var(--space-12) var(--space-6);
 }
@@ -48,16 +50,36 @@ body {
 }
 
 .page-header p {
-  margin: 0 0 var(--space-8);
+  margin: 0 0 var(--space-6);
   color: var(--color-text-muted);
 }
 
+.recipe-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.recipe-nav-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-inline: var(--space-6);
+}
+
 .back-link {
-  display: inline-block;
-  margin-bottom: var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--text-sm);
   color: var(--color-text-muted);
   text-decoration: none;
-  font-size: var(--text-sm);
+  cursor: pointer;
 }
 
 .back-link:hover,

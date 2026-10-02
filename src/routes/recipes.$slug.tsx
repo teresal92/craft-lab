@@ -1,5 +1,6 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 
+import RecipeNav from "../components/RecipeNav";
 import { getRecipe } from "../recipes";
 
 export const Route = createFileRoute("/recipes/$slug")({
@@ -16,31 +17,31 @@ function RecipePage() {
   const { title, description, Component } = Route.useLoaderData();
 
   return (
-    <main className="page">
-      <Link to="/" className="back-link">
-        ← All recipes
-      </Link>
-      <header className="page-header">
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </header>
-      <section className="recipe-stage">
-        <Component />
-      </section>
-    </main>
+    <>
+      <RecipeNav />
+      <main className="page">
+        <header className="page-header">
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </header>
+        <section className="recipe-stage">
+          <Component />
+        </section>
+      </main>
+    </>
   );
 }
 
 function RecipeNotFound() {
   return (
-    <main className="page">
-      <Link to="/" className="back-link">
-        ← All recipes
-      </Link>
-      <header className="page-header">
-        <h1>Recipe not found</h1>
-        <p>There's no recipe at this URL.</p>
-      </header>
-    </main>
+    <>
+      <RecipeNav />
+      <main className="page">
+        <header className="page-header">
+          <h1>Recipe not found</h1>
+          <p>There's no recipe at this URL.</p>
+        </header>
+      </main>
+    </>
   );
 }

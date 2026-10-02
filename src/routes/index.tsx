@@ -11,12 +11,17 @@ function Home() {
     <main className="page">
       <header className="page-header">
         <h1>craft lab</h1>
-        <p>A table of contents for small UI component recipes.</p>
+        <p>A collection of small UI component recipes.</p>
       </header>
       <ul className="toc">
         {recipes.map((recipe) => (
           <li key={recipe.slug}>
-            <Link to="/recipes/$slug" params={{ slug: recipe.slug }} className="toc-link">
+            <Link
+              to="/recipes/$slug"
+              params={{ slug: recipe.slug }}
+              state={{ fromIndex: true }}
+              className="toc-link"
+            >
               <span className="toc-title">{recipe.title}</span>
               <span className="toc-description">{recipe.description}</span>
             </Link>

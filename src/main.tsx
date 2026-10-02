@@ -7,6 +7,7 @@ import { routeTree } from "./routeTree.gen";
 
 const router = createRouter({
   routeTree,
+  scrollRestoration: true,
   defaultPendingComponent: () => <p className="page">Loading…</p>,
   defaultErrorComponent: ({ error }) => <p className="page">{String(error)}</p>,
 });
@@ -14,6 +15,11 @@ const router = createRouter({
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
+  }
+
+  interface HistoryState {
+    // Set by links on the home page, so recipe pages know going back lands on "/".
+    fromIndex?: boolean;
   }
 }
 
