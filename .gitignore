@@ -12,12 +12,10 @@ dist
 dist-ssr
 *.local
 
-# TanStack Router generated route tree
-src/routeTree.gen.ts
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo
